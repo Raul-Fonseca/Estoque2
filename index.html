@@ -1,86 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Controle de Estoque</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="stylelogin.css">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ 
 </head>
 <body>
-  <script>
-    const user = localStorage.getItem('loggedUser');
-    if (!user) {
-      window.location.href = "login.html";
-    }
-  </script>
-
-  <header>
-    <h1>Controle de Estoque</h1>
-    <div>
-      <span style="margin-right: 1rem;">👤 Usuário: <strong id="usernameDisplay"></strong></span>
-      <button class="logout-button" onclick="logout()">Sair</button>
-    </div>
-  </header>
 
   <div class="container">
-    <div class="form-group">
-      <input type="text" id="itemName" placeholder="Nome do item" />
-      <input type="number" step="0.01" id="itemLength" placeholder="Metragem (m)" />
-      <input type="number" id="itemQty" placeholder="Quantidade" />
-      <button onclick="addItem()">Adicionar</button>
-    </div>
-
-    <div class="form-group">
-      <input type="text" id="filterName" placeholder="Filtrar por nome" oninput="filterItems()" />
-      <input type="number" step="0.01" id="filterLength" placeholder="Filtrar por metragem" oninput="filterItems()" />
-    </div>
-
-    <div id="message"></div>
-
-    <table id="inventoryTable">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Metragem</th>
-          <th>Quantidade</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-
-    <div class="form-box" id="removeForm">
-      <h3>Remover Item</h3>
-      <p id="removeItemInfo"></p>
-      <input type="number" id="removeLength" placeholder="Metragem a remover (m)" step="0.01" />
-      <input type="number" id="removeQty" placeholder="Quantidade a remover" />
-      <button class="btn-danger" onclick="confirmRemove()">Confirmar Remoção</button>
-      <button class="btn-secondary" onclick="cancelForm()">Cancelar</button>
-    </div>
-
-    <div class="form-box" id="editForm">
-      <h3>Editar Item</h3>
-      <p id="editItemInfo"></p>
-      <input type="number" id="editLength" placeholder="Metragem a adicionar (m)" step="0.01" />
-      <input type="number" id="editQty" placeholder="Quantidade a adicionar" />
-      <button class="btn-warning" onclick="confirmEdit()">Salvar Edição</button>
-      <button class="btn-secondary" onclick="cancelForm()">Cancelar</button>
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card p-4">
+          <h2 class="text-center mb-4">Login</h2>
+          <div class="error" id="errorMessage"></div>
+          <div class="mb-3">
+            <input type="text" id="username" class="form-control" placeholder="Usuário">
+          </div>
+          <div class="mb-3">
+            <input type="password" id="password" class="form-control" placeholder="Senha">
+          </div>
+          <button onclick="login()" class="btn btn-primary w-100">Entrar</button>
+        </div>
+      </div>
     </div>
   </div>
-  
-  
-  
 
-  <script src="script.js"></script>
-  <script>
-    function logout() {
-      localStorage.removeItem('loggedUser');
-      window.location.href = "login.html";
-    }
+  <!-- Bootstrap 5 JS (opcional, se quiser usar componentes como modal) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    document.getElementById('usernameDisplay').textContent = localStorage.getItem('loggedUser');
-  </script>
-  <footer style="text-align: center; padding: 20px; background-color: #f2f2f2; margin-top: 30px;">
-    &copy; 2025 Raul Fonseca. Todos os direitos reservados.
-  </footer>
+ <script src="./index.js"></script>
 </body>
 </html>

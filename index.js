@@ -11,7 +11,7 @@ function login() {
 
   if (users[username] && users[username] === password) {
     localStorage.setItem("loggedUser", username);
-    window.location.href = "index.html";
+    window.location.href = "./admin/index.html";
   } else {
     errorMessage.textContent = "Usuário ou senha inválidos!";
   }
